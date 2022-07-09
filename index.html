@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    
+
+    <title>Portfolio</title>
+</head>
+<header>
+    <div id="typewriter"></div>
+
+    <script>
+    // array with text to type in typewriter
+    var dataText = [
+        "Richard rekow...",
+        "programmer...",
+        "web developer...",
+        "html...",
+        "css...  ",
+        "javascript...",
+        "python...",
+        
+        
+    ];
+    
+    // typewriter speed
+    // set delay time between each character typing time
+    var CharDelay = 100;
+    
+    // pause time between each completed word (delay before next word starts)
+    var WordPause = 600;
+    
+    // set initial word in dataText array
+    var WordOffset = 0;
+    
+    // set sequence restart interval N [ms]
+    var RestartInterval = 1000;
+    
+    // type one text in the typewriter
+    // keeps calling itself until complete word is printed
+    function typeWriter(text, i, fnCallback) {
+        // check if word isn't finished yet
+        if (i < (text.length)) {
+            // add next character to html
+            document.querySelector("#typewriter").innerHTML = text.substring(0, i+1) + '<span aria-hidden="true"></span>';
+    
+            // wait for a while and call this function again for next character
+            setTimeout(function() {
+                typeWriter(text, i+1, fnCallback)
+            }, CharDelay);
+        }
+    
+        // text finished, call callback if there is a callback function
+        else if (typeof fnCallback == 'function') {
+            // call callback after timeout
+            setTimeout(fnCallback, WordPause);
+        }
+    }
+    
+    // start a typewriter animation in the dataText array
+    // @param int j = dataText array word index
+    function StartTextAnimation(j) {
+        //console.log(j);
+        //console.log(dataText.length);
+        // restart animation after N seconds
+        if (typeof dataText[j] == 'undefined' || j == dataText.length) {
+            setTimeout(function() {
+                StartTextAnimation(WordOffset);
+            }, RestartInterval);
+        }
+    
+        // check if dataText[j] exists
+        else if (j < dataText[j].length) {
+            // text exists! start typewriter animation
+            typeWriter(dataText[j], 0, function() {
+                // after callback (and whole text has been animated), start next word
+                StartTextAnimation((j+1));
+            });
+        }
+    }
+    
+    document.addEventListener('DOMContentLoaded', function(event) {
+        // start text animation
+        StartTextAnimation(WordOffset);
+    }); </script>
+</header>
+<canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="main.js"></script>
+
+</canvas>
+<body>
+    <div class="cards">
+        
+        <div class="game" draggable="true">
+            
+            <div class="tooltip"> [ABOUT ME]<span class="tooltiptext">            <p>Aspiring, self-taught web developer / programmer. I love learning new things and problem solving. 
+                <p></p>I'm looking for an environment where I can work on exciting projects and improve my skills.</p>
+                <p></p></span> </div>
+
+        </div>
+
+        <div class="game">
+
+            
+
+            
+            <div class="tooltip"> [UK CRIME MAP] <span class="tooltiptext">
+               React App that uses Mapbox and UK Crime Data APIs to render some fun!
+            <a id="button" href="https://inspiring-caramel-c72a5b.netlify.app" class="button">  [VIEW]  </a>
+            </span></div>
+
+        
+        
+        
+
+        </div>
+        <div class="game">
+
+            
+
+            
+            <div class="tooltip">[CRYPTO_DATA] <span class="tooltiptext">
+                <p>
+                Cryptocurrency data visualization app. Built using react and chartjs.
+            </p>
+                <a id="button3" href="https://cryptocurrencydata.netlify.app/" class="button">  [VIEW]  </a>
+            </span></div>
+
+            
+            
+            
+
+    </div>
+        
+        <div class="game">
+
+            
+
+            
+                <div class="tooltip"> [JAVASCRIPT GAME] <span class="tooltiptext">
+                    Fire at enemies by clicking in their direction before they reach you!
+                Increases in difficulty as score increases.
+                <a id="button" href="game.html" class="button">  [PLAY]  </a>
+                </span></div>
+
+                
+                
+                
+
+        </div>
+
+        
+<!-- 
+        <div class="game">
+
+            
+
+            
+            <div class="tooltip"> [LEADERBOARD] <span class="tooltiptext">
+                Leaderboard showing highest scores achieved by all visitors to the website. Built with MongoDB and Javascript.(UNDER CONSTRUCTION)
+                <a id="button2" href="game.html" class="button">  VIEW  </a>
+            </span></div>
+
+            
+            
+            
+
+        </div> -->
+
+
+
+
+        
+
+
+
+
+        <div class="game">
+            <div class="tooltip">CONTACT: <span class="tooltiptext">
+            <p>RICHARDREKOW@GMAIL.COM</p></span></div>
+        </div>
+    </div>
+</body>
+</html>
