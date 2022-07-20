@@ -13,26 +13,32 @@ body {
 }
 
 .button {
-    padding-left: 25%;
-    padding-right: 25%;
-    
-    background-color: purple;
-    color: black;
-    border-radius: 0;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin: 20px;
+    background-color: black;
+    color: #00000000;
+    border-radius: 10px;
     max-width: 200px;
     text-align: center;
     color: white;
     user-select: none;
+    border: 2px solid white;
     
 
 
+}
+
+.button:hover {
+    border: 5px solid greenyellow;
+    color: greenyellow;
 }
 
 .game {
     text-align: center;
     max-width: 300px;
     max-height: auto;
-    background-color: rgba(0, 0, 0, 0.726);
+    background: linear-gradient(black, #00300060);
     color: white;
     border-radius: 0%;
     border: 5px solid white;
