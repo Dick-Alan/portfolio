@@ -100,7 +100,7 @@ header {
   /* Tooltip text */
   .tooltip .tooltiptext {
     visibility: hidden;
-    width: 300px;
+    width: auto;
     background-color: rgba(0, 0, 0, 0.733);
     color: #fff;
     text-align: center;
@@ -121,4 +121,13 @@ header {
 
   .tooltip:hover {
       color: greenyellow;
+  }
+
+  .imagecontainer {
+    height: 45vh;
+    width: auto; 
+  }
+  .image {
+    height: 45vh;
+    width: auto;
   }
